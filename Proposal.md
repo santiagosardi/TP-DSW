@@ -106,5 +106,5 @@ Adicionales para Aprobación
 |1|Las contraseñas deben almacenarse hasheadas|
 |2|La interfaz debe servir para mobile y escritorio|
 |3|Las recomendaciones deben generarse rapidamente|
-|4|El catálogo debe soportar el crecimiento de juegos sin bajar la eficacia |
+|4|El catálogo debe soportar el crecimiento en la cantidad de juegos sin bajar la eficacia |
 
