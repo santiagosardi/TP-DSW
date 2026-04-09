@@ -1,17 +1,17 @@
-### Trabajao Practico Desarrollo de Software 2026
+## Trabajao Practico Desarrollo de Software 2026
 
-#### Grupo
-##### Integrantes
+### Grupo
+### Integrantes
 
 * 53725 - Sardi Nieva, Santiago
 * 53725 - Ripacoli Fuentes, Santino
 * 53725 - Petazzi Cardetti, Juan Cruz
 
-### Repositorios
+## Repositorios
 * [frontend app](http://hyperlinkToGihubOrGitlab)
 * [backend app](http://hyperlinkToGihubOrGitlab)
 *Nota*: si utiliza un monorepo indicar un solo link con fullstack app.
 
-#### Buscador de juegos en base a gustos
-#### Descripción
+### Buscador de juegos en base a gustos
+### Descripción
 * My Game Searcher. Es una aplicacion enfocada principalmente para aquellas personas que utilizan como medio de etretenimiento los Juegos de Computadora/ Consola. El sistema se basa en una aplicacion en la cual tras una cierta informacion otorgada por el usuario (Sus tipos de juegos preferidos y el dispositivo que utilizan), poder otorgar de 1 a 3 recomendaciones de juegos basadas en los datos obtenidos. 
