@@ -71,5 +71,16 @@ Adicionales para Aprobación
 |CUU/Epic|1. Marcar juego como "ya jugado" o "me interesa"<br>2. Calificar una recomendación recibida|
 |Otros|1. Envío de recomendación por email al usuario|
 
-
+## Requerimientos Funcionales
+|id|Req|
+|:-|:-|
+|1|Registrar datos personales del usuario para crear la cuenta|
+|2|Mostrar recomendaciones de los juegos más populares del momento|
+|3|Mostrar recomendaciones de los juegos mejor calificados|
+|4|Registrar las preferencias del usuario|
+|5|Mostrar los juegos que cumplen con las especificaciones ingresadas|
+|6|Registrar la elección del usuario|
+|7|Mostrar todos los detalles del juego seleccionado por el usuario|
+|8|Registrar el juego como preferencia para recomendar juegos similares|
+|9|Mostrar juegos relacionados|
 
