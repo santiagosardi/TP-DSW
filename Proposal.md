@@ -4,7 +4,7 @@
 #### Integrantes
 
 * 53725 - Sardi Nieva, Santiago
-* 52158 - Ripacoli Fuentes, Santino
+* 52158 - Ripacolli Fuentes, Santino Jorge
 * 54191 - Petazzi Cardetti, Juan Cruz
 
 ### Repositorios
