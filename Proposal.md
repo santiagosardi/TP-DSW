@@ -83,3 +83,28 @@ Adicionales para Aprobación
 |8|Registrar el juego como preferencia para recomendar juegos similares|
 |9|Mostrar juegos relacionados|
 
+
+
+
+## Requerimientos Funcionales
+|id|Req|
+|:-|:-|
+|1|Registrar datos personales del usuario para crear la cuenta|
+|2|Iniciar y cerrar sesión|
+|3|Modificar o eliminar cuenta del usuario|
+|4|Registrar y modificar las preferencias del usuario|
+|5|Mostrar recomendaciones de juegos destacadas filtradas por popularidad o calificación|
+|6|Mostrar los juegos que cumplen con las especificaciones ingresadas|
+|7|Mostrar todos los detalles del juego seleccionado por el usuario|
+|8|Registrar el juego como preferencia para recomendar juegos similares|
+|9|Mostrar juegos relacionados a uno seleccionado|
+|10|Administrar el catálogo de juegos (altas, bajas y modificaciones)|
+
+## Requerimientos No Funcionales
+|id|Req|
+|:-|:-|
+|1|Las contraseñas deben almacenarse hasheadas|
+|2|La interfaz debe servir para mobile y escritorio|
+|3|Las recomendaciones deben generarse rapidamente|
+|4|El catálogo debe soportar el crecimiento de juegos sin bajar la eficacia |
+
