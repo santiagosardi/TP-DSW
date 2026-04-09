@@ -1,4 +1,4 @@
-## Trabajao Practico Desarrollo de Software 2026
+## Trabajo Practico Desarrollo de Software 2026
 
 ### Grupo
 #### Integrantes
@@ -14,4 +14,4 @@
 
 ### Buscador de juegos en base a gustos
 #### Descripción
-* My Game Searcher. Es una aplicacion enfocada principalmente para aquellas personas que utilizan como medio de etretenimiento los Juegos de Computadora/ Consola. El sistema se basa en una aplicacion en la cual tras una cierta informacion otorgada por el usuario (Sus tipos de juegos preferidos y el dispositivo que utilizan), poder otorgar de 1 a 3 recomendaciones de juegos basadas en los datos obtenidos. 
+* My Game Searcher. Es una aplicacion enfocada principalmente para aquellas personas que utilizan como medio de etretenimiento los Juegos de Computadora/ Consola y no saben que jugar. El sistema se basa en una aplicacion en la cual tras una cierta informacion otorgada por el usuario (Sus tipos de juegos preferidos y el dispositivo que utilizan), poder otorgar de 1 a 3 recomendaciones de juegos basadas en los datos obtenidos. 
