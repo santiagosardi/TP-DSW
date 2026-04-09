@@ -14,4 +14,6 @@
 
 ### Buscador de juegos en base a gustos
 #### Descripción
-* My Game Searcher. Es una aplicacion enfocada principalmente para aquellas personas que utilizan como medio de etretenimiento los Juegos de Computadora/ Consola y no saben que jugar. El sistema se basa en una aplicacion en la cual tras una cierta informacion otorgada por el usuario (Sus tipos de juegos preferidos y el dispositivo que utilizan), poder otorgar de 1 a 3 recomendaciones de juegos basadas en los datos obtenidos. 
+* My Game Searcher es una aplicación orientada a usuarios que utilizan los videojuegos como medio de entretenimiento pero no saben qué jugar. El sistema permite ingresar información básica, como los géneros y caracteristicas de juegos preferidos (Historia, RPG, Competitivo, etc) y el dispositivo utilizado (por ejemplo, PC o consola), y a partir de estos datos genera entre 1 y 3 recomendaciones de videojuegos adaptadas a las preferencias del usuario.
+
+El objetivo principal del sistema es facilitar la toma de decisión del usuario, ofreciendo sugerencias personalizadas en base a sus gustos y limitaciones tecnológicas.
