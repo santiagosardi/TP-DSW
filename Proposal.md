@@ -6,6 +6,7 @@
 * 53725 - Sardi Nieva, Santiago
 * 52158 - Ripacolli Fuentes, Santino Jorge
 * 54191 - Petazzi Cardetti, Juan Cruz
+* 54191 - Garcia, Mateo
 
 ### Repositorios
 * [frontend app](http://hyperlinkToGihubOrGitlab)
