@@ -1,111 +1,80 @@
-## Trabajo Practico Desarrollo de Software 2026
+# Propuesta TP DSW - 2026
 
-### Grupo
-#### Integrantes
+## Grupo
+
+### Integrantes
 
 * 53725 - Sardi Nieva, Santiago
 * 52158 - Ripacolli Fuentes, Santino Jorge
 * 54191 - Petazzi Cardetti, Juan Cruz
-* 54191 - Garcia, Mateo
+* 54196 - Garcia, Mateo
 
 ### Repositorios
+
 * [frontend app](http://hyperlinkToGihubOrGitlab)
 * [backend app](http://hyperlinkToGihubOrGitlab)
-*Nota*: si utiliza un monorepo indicar un solo link con fullstack app.
 
-### Buscador de juegos en base a gustos
-#### Descripción
-* My Game Searcher es una aplicación orientada a usuarios que utilizan los videojuegos como medio de entretenimiento pero no saben qué jugar. El sistema permite ingresar información básica, como los géneros y caracteristicas de juegos preferidos (Historia, RPG, Competitivo, etc) y la plataforma utilizada (por ejemplo, PC, Playstation, Xbox o Switch), y a partir de estos datos genera entre 1 y 3 recomendaciones de videojuegos adaptadas a las preferencias del usuario. El objetivo principal del sistema es facilitar la toma de decisión del usuario, ofreciendo sugerencias personalizadas en base a sus gustos y limitaciones tecnológicas.
+## Tema
+
+### Descripción
+
+My Game Searcher es una aplicación orientada a usuarios que utilizan los videojuegos como medio de entretenimiento pero no saben qué jugar. El sistema permite ingresar información básica, como los géneros y características de juegos preferidos (Historia, RPG, Competitivo, etc.) y la plataforma utilizada (por ejemplo, PC, PlayStation, Xbox o Switch), y a partir de estos datos genera entre 1 y 3 recomendaciones de videojuegos adaptadas a las preferencias del usuario. El objetivo principal del sistema es facilitar la toma de decisión del usuario, ofreciendo sugerencias personalizadas en base a sus gustos y limitaciones tecnológicas.
 
 ### Modelo
+
 ![imagen del modelo](modelodominio.jpg)
 
-### Alcance Funcional 
-
-El sistema permite a los usuarios interactuar con una plataforma de recomendación de videojuegos, brindando funcionalidades orientadas a la carga de datos, gestión de preferencias y obtención de recomendaciones personalizadas.
-
-|nro|Funcion|
-|:-|:-|
-|1|Registrar, modificar y eliminar videojuegos|
-|2|Registrar y gestionar usuarios dentro del sistema|
-|3|Clasificar los videojuegos según género y plataforma|
-|4|Visualizar listados de videojuegos filtrados según distintos criterios|
-|5|Consultar el detalle completo de cada videojuego|
-|6|Generar recomendaciones personalizadas en base a los gustos del usuario y su plataforma|
+## Alcance Funcional
 
 ### Alcance Mínimo
 
-|Req|Detalle|
-|CRUD Simple|1. Caracteristicas <br>. Plataforma <br>. Juego|
+**Regularidad:**
 
-
-
-## Alcance Funcional 
-
-### Alcance Mínimo
-
-
-Regularidad:
-|Req|Detalle|
+| Req | Detalle |
 |:-|:-|
-|CRUD simple|1. CRUD Genero<br>2. CRUD Plataforma<br>3. CRUD Caracteristica|
-|CRUD dependiente|1. CRUD Juego {depende de} CRUD Genero, CRUD Plataforma<br>2. CRUD Usuario {depende de} CRUD Plataforma|
-|Listado<br>+<br>detalle| 1. Listado de juegos filtrado por género y plataforma, muestra nombre, género y plataforma => detalle muestra datos completos del juego<br> 2. Listado de recomendaciones del usuario filtrado por fecha, muestra nombre del juego, géneros y plataforma recomendada => detalle muestra la búsqueda realizada y los juegos sugeridos|
-|CUU/Epic|1. Registrar usuario y configurar preferencias<br>2. Generar recomendaciones personalizadas de juegos|
+| CRUD simple | 1. CRUD Género<br>2. CRUD Plataforma<br>3. CRUD Característica<br>4. CRUD Clasificación de Edad |
+| CRUD dependiente | 1. CRUD Juego {depende de} CRUD Género, CRUD Plataforma, CRUD Clasificación de Edad<br>2. CRUD Usuario {depende de} CRUD Plataforma |
+| Listado + detalle | 1. Listado de juegos filtrado por género y plataforma, muestra nombre, género y plataforma => detalle muestra datos completos del juego incluyendo clasificación de edad y características<br>2. Listado de recomendaciones del usuario filtrado por fecha, muestra nombre del juego, géneros y plataforma recomendada => detalle muestra la búsqueda realizada y los juegos sugeridos |
+| CUU/Epic | 1. Registrar usuario y configurar preferencias<br>2. Generar recomendaciones personalizadas de juegos |
 
+**Adicionales para Aprobación:**
 
-Adicionales para Aprobación
-|Req|Detalle|
+| Req | Detalle |
 |:-|:-|
-|CRUD |1. CRUD Genero<br>2. CRUD Plataforma<br>3. CRUD Caracteristica<br>4. CRUD Juego<br>5. CRUD Usuario|
-|CUU/Epic|1. Registrar usuario y configurar preferencias<br>2. Generar recomendaciones personalizadas de juegos<br>3. Administrar catálogo de juegos (carga y edición por admin)|
+| CRUD | 1. CRUD Género<br>2. CRUD Plataforma<br>3. CRUD Característica<br>4. CRUD Clasificación de Edad<br>5. CRUD Juego<br>6. CRUD Usuario |
+| CUU/Epic | 1. Registrar usuario y configurar preferencias<br>2. Generar recomendaciones personalizadas de juegos<br>3. Administrar catálogo de juegos (carga y edición por admin)<br>4. Calificar una recomendación recibida |
 
+> Los CUUs 2 y 4 están relacionados entre sí: la recomendación generada en el CUU 2 es el input que el usuario califica en el CUU 4.
 
 ### Alcance Adicional Voluntario
 
-*Nota*: El Alcance Adicional Voluntario es opcional, pero ayuda a que la funcionalidad del sistema esté completa y será considerado en la nota en función de su complejidad y esfuerzo.
-
-|Req|Detalle|
+| Req | Detalle |
 |:-|:-|
-|Listados |1. Juegos más recomendados filtrado por género, muestra nombre, plataforma y cantidad de veces recomendado <br>2.  Historial de búsquedas del usuario, muestra fecha, preferencias ingresadas y juegos sugeridos|
-|CUU/Epic|1. Marcar juego como "ya jugado" o "me interesa"<br>2. Calificar una recomendación recibida|
-|Otros|1. Envío de recomendación por email al usuario|
+| Listados | 1. Juegos más recomendados filtrado por género, muestra nombre, plataforma y cantidad de veces recomendado<br>2. Historial de búsquedas del usuario, muestra fecha, preferencias ingresadas y juegos sugeridos |
+| CUU/Epic | 1. Marcar juego como "ya jugado" o "me interesa" |
+| Otros | 1. Envío de recomendación por email al usuario |
 
 ## Requerimientos Funcionales
-|id|Req|
+
+| id | Req |
 |:-|:-|
-|1|Registrar datos personales del usuario para crear la cuenta|
-|2|Mostrar recomendaciones de los juegos más populares del momento|
-|3|Mostrar recomendaciones de los juegos mejor calificados|
-|4|Registrar las preferencias del usuario|
-|5|Mostrar los juegos que cumplen con las especificaciones ingresadas|
-|6|Registrar la elección del usuario|
-|7|Mostrar todos los detalles del juego seleccionado por el usuario|
-|8|Registrar el juego como preferencia para recomendar juegos similares|
-|9|Mostrar juegos relacionados|
-
-
-
-
-## Requerimientos Funcionales
-|id|Req|
-|:-|:-|
-|1|Registrar datos personales del usuario para crear la cuenta|
-|2|Iniciar y cerrar sesión|
-|3|Modificar o eliminar cuenta del usuario|
-|4|Registrar y modificar las preferencias del usuario|
-|5|Mostrar recomendaciones de juegos destacadas filtradas por popularidad o calificación|
-|6|Mostrar los juegos que cumplen con las especificaciones ingresadas|
-|7|Mostrar todos los detalles del juego seleccionado por el usuario|
-|8|Registrar el juego como preferencia para recomendar juegos similares|
-|9|Mostrar juegos relacionados a uno seleccionado|
-|10|Administrar el catálogo de juegos (altas, bajas y modificaciones)|
+| 1 | Registrar datos personales del usuario para crear la cuenta |
+| 2 | Iniciar y cerrar sesión |
+| 3 | Modificar o eliminar cuenta del usuario |
+| 4 | Registrar y modificar las preferencias del usuario |
+| 5 | Mostrar recomendaciones de juegos destacadas filtradas por popularidad o calificación |
+| 6 | Mostrar los juegos que cumplen con las especificaciones ingresadas |
+| 7 | Mostrar todos los detalles del juego seleccionado por el usuario |
+| 8 | Registrar el juego como preferencia para recomendar juegos similares |
+| 9 | Mostrar juegos relacionados a uno seleccionado |
+| 10 | Administrar el catálogo de juegos (altas, bajas y modificaciones) |
+| 11 | Calificar una recomendación recibida y visualizar el historial de calificaciones |
 
 ## Requerimientos No Funcionales
-|id|Req|
-|:-|:-|
-|1|Las contraseñas deben almacenarse hasheadas|
-|2|La interfaz debe servir para mobile y escritorio|
-|3|Las recomendaciones deben generarse rapidamente|
-|4|El catálogo debe soportar el crecimiento en la cantidad de juegos sin bajar la eficacia |
 
+| id | Req |
+|:-|:-|
+| 1 | Las contraseñas deben almacenarse hasheadas |
+| 2 | La interfaz debe adaptarse a mobile y escritorio |
+| 3 | Las recomendaciones deben generarse con baja latencia |
+| 4 | El catálogo debe soportar el crecimiento en la cantidad de juegos sin degradar el rendimiento |
