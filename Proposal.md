@@ -11,8 +11,8 @@
 
 ### Repositorios
 
-* [frontend app](http://hyperlinkToGihubOrGitlab)
-* [backend app](http://hyperlinkToGihubOrGitlab)
+* [frontend app](https://github.com/petazzijuann/mygamesearcher-frontend)
+* [backend app](https://github.com/petazzijuann/mygamesearcher-backend)
 
 ## Tema
 
