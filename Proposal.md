@@ -20,7 +20,7 @@
 "DGame" es un sistema que busca asistir a *gamers* en el momento de elección de un videojuego antes de jugar, centrándose en sus preferencias, necesidades y disponibilidad. Su propósito es reducir la fricción que tienen aquellos *gamers* con una amplia variedad de opciones para seleccionar un juego para jugar, tanto individualmente como en grupo.
 
 ### Modelo
-![[ModeloDominio_DGame.png]]
+![Modelo de Domino](ModeloDominio_DGame.png)
 
 ## Alcance Funcional
 
