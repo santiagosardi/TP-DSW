@@ -60,26 +60,59 @@ Cada Issue representará una unidad de trabajo concreta y contendrá, cuando cor
 - responsable asignado;
 - estado de avance.
 
-Las Issues podrán organizarse mediante **Labels** para agrupar funcionalidades relacionadas y mediante **Milestones** para representar los objetivos de cada iteración.
+Las Issues podrán organizarse mediante Labels para clasificarlas y mediante Milestones para representar entregas u objetivos importantes del proyecto.
 
 El seguimiento general del proyecto se realizará utilizando **GitHub Projects**.
 
 ---
 
-# Flujo de trabajo con Git
+# Control de versiones
 
-La rama `main` contendrá únicamente versiones estables del proyecto.
+El proyecto utilizará Git como sistema de control de versiones y GitHub como plataforma de almacenamiento y colaboración.
 
-Cada nueva funcionalidad, mejora o corrección se desarrollará en una rama independiente creada a partir de `main`, siguiendo una convención de nombres descriptiva, por ejemplo:
+El objetivo es mantener un historial claro del desarrollo, permitir la colaboración entre integrantes y asegurar la trazabilidad de los cambios realizados.
+
+## Organización de ramas
+
+La rama `main` contendrá únicamente versiones estables del sistema.
+
+Cada nueva funcionalidad, mejora o corrección se desarrollará en una rama independiente creada a partir de `main`.
+
+Las ramas seguirán una convención descriptiva:
+
+- `feature/nombre-funcionalidad`
+- `fix/nombre-correccion`
+- `docs/nombre-documentacion`
+
+Ejemplos:
 
 - `feature/crud-juego`
-- `feature/crud-usuario`
 - `feature/recomendaciones`
 - `fix/validacion-email`
 
-Una vez finalizado el desarrollo de una tarea, los cambios se integrarán mediante una **Pull Request**, la cual permitirá revisar el código antes de incorporarlo a la rama principal.
+## Pull Requests
 
-No se realizarán modificaciones directamente sobre la rama `main`.
+Los cambios no se integrarán directamente sobre `main`.
+
+Una vez finalizada una tarea, se realizará una Pull Request para revisar los cambios antes de incorporarlos a la rama principal.
+
+Cada Pull Request deberá:
+
+- describir los cambios realizados;
+- relacionarse con la Issue correspondiente;
+- permitir revisar el código antes de integrarlo.
+
+## Commits
+
+Los commits deberán representar cambios concretos y mantener una descripción clara del objetivo realizado.
+
+Se evitarán commits demasiado grandes que mezclen múltiples funcionalidades diferentes.
+
+Ejemplos:
+
+- `Agregar entidad Juego`
+- `Implementar endpoint POST juegos`
+- `Corregir validación de usuario`
 
 ---
 
