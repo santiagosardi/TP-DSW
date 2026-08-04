@@ -32,7 +32,7 @@
 | :---------------- | :---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | CRUD simple       | 1. CRUD Usuario<br>2. CRUD Juego<br>3. CRUD Plataforma<br>4. CRUD Género                                                                                                                                    |
 | CRUD dependiente  | 1. CRUD Biblioteca {depende de} CRUD Usuario, CRUD Juego<br>2. CRUD Colección {depende de} CRUD Usuario, CRUD Juego                                                                                         |
-| Listado + detalle | 1. Listado de juegos filtrado por nombre, muestra nombre, género y plataforma => detalle CRUD Juego<br>2. Listado de juegos recomendados según cuestionario realizado por el usuario. -> detalle CRUD Juego |
+| Listado + detalle | 1. Listado de juegos filtrado por nombre, muestra nombre, género y plataforma => detalle CRUD Juego<br>2. Listado de recomendaciones personalizadas para el usuario, muestra nombre, género y plataforma del juego recomendado => detalle CRUD Juego. |
 | CUU/Epic          | 1. Administrar biblioteca de juegos<br>2. Generar recomendación personalizada<br>3. Administrar colección de juegos                                                                                         |
 
 **Adicionales para Aprobación:**
