@@ -41,7 +41,7 @@
 
 | Req      | Detalle                                                                                                                                                         |
 | :------- | :-------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| CRUD     | 1. CRUD Usuario<br>2. CRUD Juego<br>3. CRUD Plataforma<br>4. CRUD Género<br>5. CRUD Característica<br>6. CRUD Biblioteca<br>7. CRUD Colección                   |
+| CRUD     | 1. CRUD Usuario<br>2. CRUD Juego<br>3. CRUD Plataforma<br>4. CRUD Género<br>5. CRUD Característica<br>6. CRUD Colección                                         |
 | CUU/Epic | 1. Administrar biblioteca personal<br>2. Generar recomendación personalizada<br>3. Administrar colección de juegos<br>4. Consultar historial de recomendaciones |
 
 ### Alcance Adicional Voluntario
