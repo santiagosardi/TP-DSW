@@ -116,6 +116,30 @@ Ejemplos:
 
 ---
 
+# Gestión de dependencias
+
+Las dependencias del proyecto serán administradas mediante los gestores
+correspondientes a cada tecnología utilizada.
+
+En el backend se utilizará el gestor de paquetes de Node.js mediante
+el archivo `package.json`, donde se registrarán las dependencias necesarias
+para ejecución, desarrollo y testing.
+
+Las versiones de las dependencias serán controladas mediante el archivo
+de bloqueo generado por el gestor de paquetes (`package-lock.json`),
+permitiendo reproducir el entorno de desarrollo entre los integrantes
+del equipo.
+
+La incorporación de nuevas dependencias deberá evaluarse previamente,
+considerando:
+
+- necesidad real dentro del proyecto;
+- compatibilidad con las tecnologías existentes;
+- mantenimiento y soporte de la herramienta;
+- impacto sobre la complejidad del sistema.
+
+---
+
 # Definición de Terminado (Definition of Done)
 
 Una tarea se considerará finalizada cuando cumpla, como mínimo, las siguientes condiciones:
