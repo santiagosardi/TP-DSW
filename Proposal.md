@@ -22,7 +22,7 @@
 
 ### Modelo
 
-![Modelo de Domino](ModeloDominio_DGame.png)
+![Modelo Entidad Relación](Modelo_Entidad_Relacion.png)
 
 ## Alcance Funcional
 
