@@ -1,125 +1,77 @@
 # Estrategia técnica
 
-## Objetivo
+Este documento registra las decisiones de la implementación final de MyGameSearcher y sus motivos. La configuración operativa se resume en la [guía técnica](../desarrollo_backend_frontend.md).
 
-Registrar las principales decisiones tecnológicas del proyecto y sus motivos.
+## Tecnologías elegidas
 
-Este documento define **con qué tecnologías se desarrollará el sistema**.  
-La organización interna y las responsabilidades de los componentes se documentan en el documento de **Arquitectura**.
+| Área | Tecnología | Motivo |
+| --- | --- | --- |
+| Interfaz | React 19 y TypeScript | Componentes reutilizables y contratos tipados |
+| Herramientas frontend | Vite | Desarrollo y compilación de la aplicación |
+| Navegación | React Router | Organización de las vistas y rutas del cliente |
+| Cliente HTTP | Axios | Consumo de la API REST |
+| Estilos | Bootstrap y CSS tradicional | Componentes visuales y adaptación responsive |
+| Backend | NestJS y TypeScript | Organización por módulos y separación de responsabilidades |
+| API | REST con JSON | Comunicación sencilla entre implementaciones separadas |
+| Persistencia | MikroORM 7.2.3, mysql2 y MySQL | Mapeo de entidades y relaciones a una base relacional |
+| Autenticación | JWT y bcryptjs | Identificación mediante tokens y almacenamiento de hashes de contraseñas |
 
-Las decisiones pueden cambiar durante el desarrollo si aparece información que justifique revisarlas.
+## Arquitectura y despliegue
 
----
+```text
+React / Vercel
+    ↓ HTTPS + REST API + JWT
+NestJS / Render
+    ↓ MikroORM + SSL
+MySQL / Aiven
+```
 
-# Stack tecnológico
+El frontend presenta la información y envía solicitudes. En el backend, los controladores reciben las peticiones, los DTOs y ValidationPipe validan los datos y los servicios resuelven las reglas de negocio. MikroORM gestiona la persistencia y las relaciones. Las migraciones versionan el esquema y el seed carga el catálogo.
 
-## Backend
+Vercel aloja el frontend, Render ejecuta el backend y Aiven proporciona MySQL. La configuración varía por entorno mediante variables, sin incorporar secretos al código. El deploy de las implementaciones se realiza desde `main`.
 
-| Decisión | Tecnología | Estado |
-|---|---|---|
-| Lenguaje | TypeScript | Confirmada |
-| Framework | NestJS | Confirmada |
-| API | REST + JSON sobre HTTP | Propuesta |
-| ORM | MikroORM | Propuesta |
-| Base de datos | MySQL | Confirmada |
-| Validación | DTOs + `class-validator` + `ValidationPipe` | Propuesta |
-| Testing | Jest | Propuesta |
-| Autenticación | JWT | Propuesta |
-| Documentación API | Swagger / OpenAPI | Propuesta |
+## Seguridad
 
-### Motivos principales
+- JWT identifica al usuario en las solicitudes autenticadas.
+- Los guards protegen rutas y verifican los permisos de los roles USER y ADMIN.
+- Los recursos personales se asocian al usuario autenticado; las operaciones administrativas requieren autorización.
+- bcryptjs genera y verifica hashes de contraseñas. Las contraseñas no se almacenan en texto plano y los hashes no deben formar parte de respuestas públicas.
+- Las credenciales y secretos se configuran por entorno.
+- HTTPS protege la comunicación pública y SSL protege la conexión del backend con Aiven.
+- CORS utiliza `FRONTEND_ORIGIN` para permitir el origen configurado del frontend; no reemplaza la autenticación ni la autorización.
 
-- **NestJS:** proporciona una estructura adecuada para desarrollar el backend y facilita la separación de responsabilidades.
-- **TypeScript:** aporta tipado estático y se integra naturalmente con NestJS.
-- **REST + JSON:** permite mantener frontend y backend desacoplados mediante una API HTTP sencilla.
-- **MySQL:** se adapta al modelo relacional del sistema y el equipo posee experiencia previa.
-- **MikroORM:** permite trabajar con MySQL desde TypeScript mediante un ORM y se integra con el stack seleccionado.
-- **Jest:** permite implementar las pruebas requeridas por la cátedra dentro del ecosistema de NestJS.
-- **JWT:** resulta adecuado para una aplicación con frontend y backend separados.
-- **Swagger/OpenAPI:** facilita documentar y consultar el contrato de la API.
+## Recomendaciones sin IA
 
----
+Las recomendaciones se calculan dinámicamente: no se persisten como una entidad ni utilizan inteligencia artificial.
 
-# Frontend
+Se acumulan preferencias a partir de los juegos de referencia. Los favoritos tienen mayor peso cuando forman parte de esa fuente. Para cada candidato se suman los aportes:
 
-| Decisión | Tecnología | Estado |
-|---|---|---|
-| Framework | React + TypeScript | Propuesta |
-| Estado | Hooks nativos de React | Propuesta |
-| Estilos | Bootstrap | Propuesta |
-| Testing de componentes | Vitest + React Testing Library | Propuesta |
-| Testing E2E | Pendiente | Pendiente |
+| Coincidencia | Aporte |
+| --- | --- |
+| Género | 3 × peso acumulado del género |
+| Característica | 2 × peso acumulado de la característica |
+| Plataforma | 1 × peso acumulado de la plataforma |
 
-### Motivos principales
+El resultado incluye el puntaje y motivos comprensibles. Con los mismos datos de entrada, el cálculo produce el mismo resultado. Esta decisión permite explicar y verificar las recomendaciones sin introducir modelos de aprendizaje automático.
 
-- **React:** permite construir la interfaz mediante componentes reutilizables y cumple con los requisitos del proyecto.
-- **TypeScript:** permite representar de forma explícita los modelos y contratos utilizados por el frontend.
-- **Hooks nativos:** inicialmente son suficientes para el alcance previsto y evitan agregar complejidad innecesaria.
-- **Bootstrap:** facilita implementar una interfaz responsive y mobile-first, incluyendo los breakpoints requeridos.
-- **Vitest + React Testing Library:** permiten probar componentes desde su comportamiento observable.
+## Testing y validación al cierre
 
----
+| Área | Herramienta | Resultado validado |
+| --- | --- | --- |
+| Frontend | Vitest | 8 archivos, 91 tests aprobados |
+| Backend | Jest | 14 suites, 174 tests aprobados |
+| E2E aislado | Playwright | 7/7 escenarios aprobados |
 
-# Configuración y ambientes
+Estos valores corresponden al cierre del proyecto. La infraestructura E2E se mantiene separada del entorno de producción. Los comandos y requisitos para repetir las pruebas pertenecen a los repositorios de implementación.
 
-## Variables de entorno
+## Diseño responsive
 
-**Decisión:** utilizar variables de entorno mediante `.env`.
+La interfaz utiliza Bootstrap, CSS, Grid/Flexbox y media queries para adaptarse a desktop, tablet y mobile. Se prioriza el contenido esencial en pantallas pequeñas y se busca evitar el scroll horizontal.
 
-**Estado:** Propuesta.
+La validación manual al cierre cubrió anchos aproximados de 1440, 1024, 768 y 390 px. Esta comprobación complementa las pruebas automatizadas; no implica cobertura de todos los dispositivos posibles.
 
-Se utilizarán variables de entorno para separar la configuración del código fuente y evitar almacenar información sensible directamente en el repositorio.
+## Modelos y documentación
 
-Se mantendrá un archivo `.env.example` con las variables necesarias para ejecutar el proyecto.
+El dominio final se organiza alrededor de Juego, Genero, Plataforma, Caracteristica, Usuario, Biblioteca y Coleccion. Biblioteca vincula un usuario con un juego y agrega estado y favorito; Coleccion agrupa juegos de un usuario.
 
----
-
-# Testing
-
-La estrategia de testing deberá cumplir como mínimo con los requisitos establecidos por la cátedra:
-
-### Backend
-
-- al menos un test automatizado por integrante;
-- al menos un test de integración.
-
-### Frontend
-
-- al menos un test unitario de componente;
-- al menos un test end-to-end.
-
-Además de cumplir estos mínimos, se priorizarán pruebas sobre funcionalidades que contengan lógica de negocio relevante.
-
----
-
-# Decisiones pendientes
-
-Las siguientes decisiones se tomarán cuando exista suficiente información sobre el sistema:
-
-- herramienta para testing E2E;
-- integración concreta de Bootstrap con React;
-- estrategia de deploy;
-- configuración de ambientes de desarrollo, testing y producción;
-- detalles adicionales de autenticación;
-- decisiones tecnológicas que surjan durante la implementación.
-
----
-
-# Relación con la arquitectura
-
-La **Estrategia técnica** define principalmente:
-
-> **¿Con qué tecnologías vamos a construir el sistema?**
-
-La **Arquitectura** define principalmente:
-
-> **¿Cómo vamos a organizar esas tecnologías para construir el sistema?**
-
-Por ejemplo:
-
-- Estrategia técnica → NestJS + MikroORM + MySQL.
-- Arquitectura → backend organizado en capas y módulos.
-- Estrategia técnica → React + Bootstrap.
-- Arquitectura → organización de componentes, servicios y comunicación con la API.
-
-Las decisiones arquitectónicas más detalladas se definirán a partir del modelo del sistema y de las necesidades que aparezcan durante el desarrollo.
+Los diagramas conservados en este repositorio aún corresponden a versiones anteriores y están pendientes de actualización. Para la implementación y el contrato de la API, consultar el [repositorio backend](https://github.com/santiagosardi/mygamesearcher-backend) y el [repositorio frontend](https://github.com/santiagosardi/mygamesearcher-frontend).
