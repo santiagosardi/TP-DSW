@@ -1,53 +1,63 @@
-# Propuesta TP DSW - 2026
+# Propuesta inicial
 
-## Grupo
+Este documento conserva el propósito y el alcance planteados al comienzo del TP DSW 2026 y los distingue del resultado finalmente entregado.
 
-### Integrantes
+## Motivación y problema
 
-- 53725 - Sardi Nieva, Santiago
-- 52158 - Ripacolli Fuentes, Santino Jorge
-- 54191 - Petazzi Cardetti, Juan Cruz
-- 54196 - Garcia, Mateo
+La propuesta inicial, denominada «DGame», buscaba asistir a quienes tienen muchas opciones de videojuegos y necesitan elegir qué jugar según sus preferencias, necesidades y disponibilidad, tanto individualmente como en grupo. La intención era reducir la dificultad de selección y organizar los juegos de interés.
 
-### Repositorios
+## Alcance originalmente pensado
 
-- [frontend app](https://github.com/petazzijuann/mygamesearcher-frontend)
-- [backend app](https://github.com/petazzijuann/mygamesearcher-backend)
+| Área | Propuesta inicial |
+| --- | --- |
+| CRUD simples | Usuario, Característica, Plataforma y Género |
+| CRUD dependientes | Juego relacionado con géneros, plataformas y características; Colección asociada a Usuario |
+| Listado y detalle | Búsqueda de juegos por nombre y consulta del detalle; listado de recomendaciones personalizadas |
+| Casos de uso principales | Administrar biblioteca personal, generar recomendaciones y administrar colecciones |
+| Ampliación prevista | Consultar un historial persistido de recomendaciones |
+| Ideas voluntarias | Estadísticas personales, juegos recomendados más populares, valoración de recomendaciones y exportación PDF |
 
-## Tema
+El historial persistido, las estadísticas adicionales, la valoración de recomendaciones y la exportación PDF **no se implementaron**. Se conservan aquí exclusivamente como ideas del alcance inicial.
 
-### Descripción
+El diseño evolucionó durante el desarrollo a partir de los modelos iniciales hasta el sistema finalmente implementado.
 
-"DGame" es un sistema que busca asistir a _gamers_ en el momento de elección de un videojuego antes de jugar, centrándose en sus preferencias, necesidades y disponibilidad. Su propósito es reducir la fricción que tienen aquellos _gamers_ con una amplia variedad de opciones para seleccionar un juego para jugar, tanto individualmente como en grupo.
+# Resultado final del proyecto
 
-### Modelo
+## Producto y equipo
 
-![Modelo Entidad Relación](Modelo_Entidad_Relacion.png)
+El producto final se denomina **MyGameSearcher**. Permite descubrir videojuegos, organizar biblioteca y colecciones personales y obtener recomendaciones explicables.
 
-## Alcance Funcional
+Integrantes finales de la entrega:
 
-### Alcance Mínimo
+- Santiago Sardi
+- Santino Ripacolli
 
-**Regularidad:**
+## Alcance implementado
 
-| Req               | Detalle                                                                                                                                                                                                                                               |
-| :---------------- | :---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| CRUD simple       | 1. CRUD Usuario<br>2. CRUD Característica<br>3. CRUD Plataforma<br>4. CRUD Género                                                                                                                                                                     |
-| CRUD dependiente  | 1. CRUD Juego {depende de} CRUD Plataforma, CRUD Género, CRUD Característica<br>2. CRUD Colección {depende de} CRUD Usuario                                                                                                                           |
-| Listado + detalle | 1. Listado de juegos filtrado por nombre, muestra nombre, género y plataforma => detalle CRUD Juego<br>2. Listado de recomendaciones personalizadas para el usuario, muestra nombre, género y plataforma del juego recomendado => detalle CRUD Juego. |
-| CUU/Epic          | 1. Administrar biblioteca personal<br>2. Generar recomendación personalizada<br>3. Administrar colección de juegos                                                                                                                                    |
+- Registro, login, autenticación JWT y roles USER/ADMIN.
+- Catálogo con búsqueda, filtros y detalle de juegos.
+- Biblioteca personal con estados y favoritos.
+- Colecciones personales.
+- Recomendaciones calculadas dinámicamente, sin IA ni historial persistido.
+- Administración protegida de juegos, géneros, plataformas y características.
+- Interfaz responsive y despliegue online.
 
-**Adicionales para Aprobación:**
+El catálogo final contiene 147 juegos, 13 géneros, 6 plataformas y 15 características. La recomendación utiliza coincidencias de géneros (+3), características (+2) y plataformas (+1), ponderadas por las preferencias, con mayor peso para favoritos y una explicación del resultado.
 
-| Req      | Detalle                                                                                                                                                         |
-| :------- | :-------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| CRUD     | 1. CRUD Usuario<br>2. CRUD Juego<br>3. CRUD Plataforma<br>4. CRUD Género<br>5. CRUD Característica<br>6. CRUD Colección                                         |
-| CUU/Epic | 1. Administrar biblioteca personal<br>2. Generar recomendación personalizada<br>3. Administrar colección de juegos<br>4. Consultar historial de recomendaciones |
+## Modelos finales
 
-### Alcance Adicional Voluntario
+Los siguientes diagramas representan el diseño final documentado:
 
-| Req      | Detalle                                                                                                                                     |
-| :------- | :------------------------------------------------------------------------------------------------------------------------------------------ |
-| Listados | 1. Estadísticas personales de juegos jugados, pendientes y recomendados<br>2. Juegos recomendados más populares según cantidad de usuarios. |
-| CUU/Epic | 1. Calificar recomendación recibida                                                                                                         |
-| Otros    | 1. Exportar recomendación (PDF)                                                                                                             |
+- [Modelo de dominio final](./ModeloDominio_DGame.png)
+- [Modelo entidad-relación final](./Modelo_Entidad_Relacion.png)
+
+## Implementación y entrega
+
+La solución utiliza React/Vercel, NestJS/Render y MySQL/Aiven. El frontend se comunica mediante HTTPS, REST y JWT; el backend accede a la base mediante MikroORM y SSL.
+
+- [Repositorio frontend](https://github.com/santiagosardi/mygamesearcher-frontend)
+- [Repositorio backend](https://github.com/santiagosardi/mygamesearcher-backend)
+- [Aplicación desplegada](https://mygamesearcher-frontend-fawn.vercel.app)
+- [Backend desplegado](https://mygamesearcher-backend.onrender.com)
+
+La [presentación del proyecto](./README.md) reúne las tecnologías, los resultados de testing al cierre y los enlaces de documentación. Este repositorio conserva la documentación académica; el código reside en los dos repositorios de implementación.

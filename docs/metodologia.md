@@ -1,159 +1,53 @@
-# Metodología de Trabajo
+# Metodología de trabajo
 
-## Objetivo
+## Objetivo y equipo
 
-El presente documento establece la metodología de trabajo acordada por el equipo para el desarrollo del proyecto. Su propósito es definir un proceso común de organización, desarrollo y seguimiento que facilite la coordinación entre los integrantes, promueva la calidad del software y permita avanzar de forma ordenada e incremental.
+El trabajo se organizó de forma incremental, incorporando funcionalidades y verificando su funcionamiento antes de ampliar el alcance. Los integrantes finales de la entrega son Santiago Sardi y Santino Ripacolli.
 
----
+TP-DSW reúne la documentación académica. El código y sus verificaciones se mantienen en los repositorios separados de frontend y backend.
 
-# Metodología de desarrollo
+## Flujo de control de versiones
 
-El proyecto se desarrollará siguiendo un enfoque **iterativo e incremental**, inspirado en los principios de **Scrum** y del **Unified Process (UP)**.
+El flujo utilizado para integrar la implementación fue:
 
-El desarrollo se organizará en iteraciones de aproximadamente dos semanas. Al finalizar cada iteración se espera obtener un incremento funcional del sistema, incorporando nuevas capacidades o mejorando las existentes.
+```text
+feature/* → dev → main
+```
 
-La planificación podrá ajustarse durante el desarrollo en función del avance del proyecto, los cambios de alcance o las dificultades técnicas que surjan.
+- Las funcionalidades se trabajan en ramas específicas creadas desde `dev`.
+- Los cambios terminados se integran en `dev` para comprobar su convivencia con el resto del sistema.
+- La entrega estable se integra mediante un PR final de `dev` hacia `main`.
+- `main` es la referencia de producción de los repositorios de implementación.
 
----
+Los nombres de ramas y commits deben describir el propósito del cambio. Antes de un commit o merge se revisa el diff para detectar modificaciones ajenas a la tarea, archivos sensibles o cambios accidentales. Los PR deben explicar el cambio y las verificaciones realizadas.
 
-# Organización del equipo
+## Verificación antes de integrar
 
-Todos los integrantes participarán activamente en el análisis, diseño, implementación y validación del sistema.
+Para cambios importantes de implementación se ejecutan los tests y el build correspondientes. Cuando el cambio afecta una interacción completa, se consideran las pruebas E2E aisladas y la validación manual pertinente.
 
-Las responsabilidades de planificación, seguimiento, desarrollo y revisión del código serán compartidas por el equipo, procurando una distribución equilibrada de las tareas y fomentando la colaboración entre sus integrantes.
+Los criterios de revisión son:
 
-Las decisiones técnicas relevantes se consensuarán entre todos los miembros del equipo.
+- Cumplir el alcance de la tarea y mantener las funcionalidades existentes.
+- Revisar errores de compilación y resultados de pruebas.
+- Comprobar permisos y validaciones cuando se modifica un recurso protegido.
+- Revisar la adaptación responsive cuando cambia la interfaz.
+- Evitar incluir credenciales, secretos o cambios no relacionados.
+- Actualizar la documentación afectada.
 
----
+Para cambios exclusivamente documentales se revisan contenido, enlaces y formato del diff. No se ejecutan operaciones sobre bases de datos como parte de esa revisión.
 
-# Herramientas de trabajo
+## Acuerdos iniciales de organización
 
-Se utilizarán las siguientes herramientas durante el desarrollo del proyecto:
+La propuesta metodológica inicial tomó referencias de Scrum y Unified Process: iteraciones aproximadas de dos semanas, reuniones semanales y responsabilidades compartidas. También propuso GitHub Issues, Projects, etiquetas y milestones para seguimiento, y WhatsApp para comunicación.
 
-| Herramienta          | Propósito                                                           |
-| -------------------- | ------------------------------------------------------------------- |
-| Git                  | Control de versiones                                                |
-| GitHub               | Repositorio del proyecto                                            |
-| GitHub Projects      | Gestión y seguimiento de tareas                                     |
-| GitHub Issues        | Registro y planificación de funcionalidades, mejoras y correcciones |
-| GitHub Pull Requests | Revisión e integración de cambios                                   |
-| WhatsApp             | Comunicación cotidiana del equipo                                   |
+Se conservan como acuerdos de planificación, no como evidencia de cumplimiento de todas las reuniones, ceremonias o registros. Este documento no afirma una aplicación formal completa de esos marcos ni una utilización exhaustiva de cada herramienta.
 
----
+## Dependencias y trazabilidad
 
-# Reuniones
+Las implementaciones utilizan npm, sus manifiestos y archivos de bloqueo para mantener versiones reproducibles. Las nuevas dependencias se evalúan por necesidad, compatibilidad y complejidad añadida.
 
-El equipo realizará una reunión semanal para revisar el estado del proyecto, analizar el avance de las tareas en curso, resolver inconvenientes y acordar los objetivos de la siguiente iteración.
+Git y los PR permiten revisar cambios y su contexto. Las decisiones relevantes se explican en la documentación y en las descripciones de los cambios, sin atribuir métricas de proceso que no estén respaldadas.
 
-En caso de ser necesario, podrán realizarse reuniones adicionales para coordinar actividades específicas o resolver bloqueos que afecten el desarrollo.
+## Cierre
 
----
-
-# Gestión de tareas
-
-Las funcionalidades, mejoras y correcciones se administrarán mediante **GitHub Issues**.
-
-Cada Issue representará una unidad de trabajo concreta y contendrá, cuando corresponda:
-
-- descripción de la tarea;
-- criterios de finalización;
-- responsable asignado;
-- estado de avance.
-
-Las Issues podrán organizarse mediante Labels para clasificarlas y mediante Milestones para representar entregas u objetivos importantes del proyecto.
-
-El seguimiento general del proyecto se realizará utilizando **GitHub Projects**.
-
----
-
-# Control de versiones
-
-El proyecto utilizará Git como sistema de control de versiones y GitHub como plataforma de almacenamiento y colaboración.
-
-El objetivo es mantener un historial claro del desarrollo, permitir la colaboración entre integrantes y asegurar la trazabilidad de los cambios realizados.
-
-## Organización de ramas
-
-La rama `main` contendrá únicamente versiones estables del sistema.
-
-Cada nueva funcionalidad, mejora o corrección se desarrollará en una rama independiente creada a partir de `main`.
-
-Las ramas seguirán una convención descriptiva:
-
-- `feature/nombre-funcionalidad`
-- `fix/nombre-correccion`
-- `docs/nombre-documentacion`
-
-Ejemplos:
-
-- `feature/crud-juego`
-- `feature/recomendaciones`
-- `fix/validacion-email`
-
-## Pull Requests
-
-Los cambios no se integrarán directamente sobre `main`.
-
-Una vez finalizada una tarea, se realizará una Pull Request para revisar los cambios antes de incorporarlos a la rama principal.
-
-Cada Pull Request deberá:
-
-- describir los cambios realizados;
-- relacionarse con la Issue correspondiente;
-- permitir revisar el código antes de integrarlo.
-
-## Commits
-
-Los commits deberán representar cambios concretos y mantener una descripción clara del objetivo realizado.
-
-Se evitarán commits demasiado grandes que mezclen múltiples funcionalidades diferentes.
-
-Ejemplos:
-
-- `Agregar entidad Juego`
-- `Implementar endpoint POST juegos`
-- `Corregir validación de usuario`
-
----
-
-# Gestión de dependencias
-
-Las dependencias del proyecto serán administradas mediante los gestores
-correspondientes a cada tecnología utilizada.
-
-En el backend se utilizará el gestor de paquetes de Node.js mediante
-el archivo `package.json`, donde se registrarán las dependencias necesarias
-para ejecución, desarrollo y testing.
-
-Las versiones de las dependencias serán controladas mediante el archivo
-de bloqueo generado por el gestor de paquetes (`package-lock.json`),
-permitiendo reproducir el entorno de desarrollo entre los integrantes
-del equipo.
-
-La incorporación de nuevas dependencias deberá evaluarse previamente,
-considerando:
-
-- necesidad real dentro del proyecto;
-- compatibilidad con las tecnologías existentes;
-- mantenimiento y soporte de la herramienta;
-- impacto sobre la complejidad del sistema.
-
----
-
-# Definición de Terminado (Definition of Done)
-
-Una tarea se considerará finalizada cuando cumpla, como mínimo, las siguientes condiciones:
-
-- la funcionalidad implementada cumple con los requisitos definidos;
-- el código compila y funciona correctamente;
-- no introduce errores conocidos en funcionalidades existentes;
-- los cambios fueron integrados mediante una Pull Request;
-- la Issue correspondiente puede cerrarse.
-
----
-
-# Comunicación
-
-La comunicación cotidiana del equipo se realizará mediante WhatsApp.
-
-Las decisiones relevantes relacionadas con el desarrollo del proyecto quedarán registradas en GitHub mediante Issues, Pull Requests o documentación cuando resulte necesario.
+Los resultados de validación del producto se registran en el [README principal](../README.md) y en la [estrategia técnica](./estrategia-tecnica.md). Corresponden al estado validado al cierre y se distinguen de los acuerdos metodológicos iniciales.
