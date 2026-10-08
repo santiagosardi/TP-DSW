@@ -10,12 +10,12 @@ Este índice reúne la documentación académica y los enlaces a las implementac
 - [Metodología de trabajo](./metodologia.md)
 - [Guía técnica de backend y frontend](../desarrollo_backend_frontend.md)
 
-## Diagramas históricos
+## Diagramas finales
 
 - [Modelo de dominio](../ModeloDominio_DGame.png)
 - [Modelo entidad-relación](../Modelo_Entidad_Relacion.png)
 
-Estas imágenes corresponden a diseños anteriores. Sus fuentes y exportaciones están pendientes de actualización: no deben utilizarse como descripción definitiva del dominio o del esquema implementado.
+El modelo de dominio muestra las entidades y asociaciones principales del negocio. El DER muestra el esquema relacional final con tablas, claves y relaciones.
 
 ## Código y aplicación
 

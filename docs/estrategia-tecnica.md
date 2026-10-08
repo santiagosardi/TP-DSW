@@ -74,4 +74,4 @@ La validación manual al cierre cubrió anchos aproximados de 1440, 1024, 768 y 
 
 El dominio final se organiza alrededor de Juego, Genero, Plataforma, Caracteristica, Usuario, Biblioteca y Coleccion. Biblioteca vincula un usuario con un juego y agrega estado y favorito; Coleccion agrupa juegos de un usuario.
 
-Los diagramas conservados en este repositorio aún corresponden a versiones anteriores y están pendientes de actualización. Para la implementación y el contrato de la API, consultar el [repositorio backend](https://github.com/santiagosardi/mygamesearcher-backend) y el [repositorio frontend](https://github.com/santiagosardi/mygamesearcher-frontend).
+El [modelo de dominio final](../ModeloDominio_DGame.png) documenta las entidades y asociaciones del negocio; el [modelo entidad-relación final](../Modelo_Entidad_Relacion.png) documenta las tablas, claves y relaciones del esquema implementado. Para la implementación y el contrato de la API, consultar el [repositorio backend](https://github.com/santiagosardi/mygamesearcher-backend) y el [repositorio frontend](https://github.com/santiagosardi/mygamesearcher-frontend).

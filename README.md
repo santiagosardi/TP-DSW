@@ -74,9 +74,7 @@ La adaptación responsive se validó manualmente en anchos aproximados de **1440
 - [Índice documental](./docs/README.md)
 - [Estrategia técnica](./docs/estrategia-tecnica.md)
 - [Metodología](./docs/metodologia.md)
-- [Modelo de dominio: imagen histórica](./ModeloDominio_DGame.png)
-- [DER: imagen histórica](./Modelo_Entidad_Relacion.png)
-
-**Los diagramas existentes están pendientes de actualización y no deben interpretarse como el modelo final implementado.** Esta revisión actualiza únicamente la documentación Markdown.
+- [Modelo de dominio final](./ModeloDominio_DGame.png)
+- [Modelo entidad-relación final](./Modelo_Entidad_Relacion.png)
 
 Para instalar y ejecutar la aplicación, consultar los README de los repositorios de implementación enlazados arriba.

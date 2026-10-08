@@ -19,9 +19,7 @@ La propuesta inicial, denominada «DGame», buscaba asistir a quienes tienen muc
 
 El historial persistido, las estadísticas adicionales, la valoración de recomendaciones y la exportación PDF **no se implementaron**. Se conservan aquí exclusivamente como ideas del alcance inicial.
 
-## Modelos iniciales
-
-Los [diagramas de dominio](./ModeloDominio_DGame.png) y [entidad-relación](./Modelo_Entidad_Relacion.png) documentan versiones anteriores del diseño. Están pendientes de actualización y no representan de forma completa el sistema entregado.
+El diseño evolucionó durante el desarrollo a partir de los modelos iniciales hasta el sistema finalmente implementado.
 
 # Resultado final del proyecto
 
@@ -45,6 +43,13 @@ Integrantes finales de la entrega:
 - Interfaz responsive y despliegue online.
 
 El catálogo final contiene 147 juegos, 13 géneros, 6 plataformas y 15 características. La recomendación utiliza coincidencias de géneros (+3), características (+2) y plataformas (+1), ponderadas por las preferencias, con mayor peso para favoritos y una explicación del resultado.
+
+## Modelos finales
+
+Los siguientes diagramas representan el diseño final documentado:
+
+- [Modelo de dominio final](./ModeloDominio_DGame.png)
+- [Modelo entidad-relación final](./Modelo_Entidad_Relacion.png)
 
 ## Implementación y entrega
 
