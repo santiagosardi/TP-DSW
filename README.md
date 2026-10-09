@@ -61,7 +61,7 @@ Estos resultados corresponden al estado validado al cierre del proyecto; no repr
 
 | Área | Resultado |
 | --- | --- |
-| Frontend | 8 archivos Vitest, 91 tests aprobados |
+| Frontend | 8 archivos Vitest, 93 tests aprobados |
 | Backend | 14 suites Jest, 174 tests aprobados |
 | E2E aislado | 7/7 escenarios Playwright aprobados |
 
