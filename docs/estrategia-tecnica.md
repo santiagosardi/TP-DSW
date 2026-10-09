@@ -58,7 +58,7 @@ El resultado incluye el puntaje y motivos comprensibles. Con los mismos datos de
 
 | Área | Herramienta | Resultado validado |
 | --- | --- | --- |
-| Frontend | Vitest | 8 archivos, 91 tests aprobados |
+| Frontend | Vitest | 8 archivos, 93 tests aprobados |
 | Backend | Jest | 14 suites, 174 tests aprobados |
 | E2E aislado | Playwright | 7/7 escenarios aprobados |
 
